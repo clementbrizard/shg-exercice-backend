@@ -1,0 +1,38 @@
+{
+  "name": "sport-activity",
+  "version": "1.0.0",
+  "description": "A package to handle sport activities",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "node --experimental-vm-modules node_modules/.bin/jest .",
+    "lint": "npx eslint . --ext .js"
+  },
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/clementbrizard/shg-exercice-backend.git"
+  },
+  "keywords": [
+    "running",
+    "cycling",
+    "walking",
+    "marathon"
+  ],
+  "author": "Clément Brizard",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/clementbrizard/shg-exercice-backend/issues"
+  },
+  "homepage": "https://github.com/clementbrizard/shg-exercice-backend#readme",
+  "devDependencies": {
+    "@babel/core": "^7.12.3",
+    "@babel/eslint-parser": "^7.12.1",
+    "@babel/plugin-proposal-class-properties": "^7.12.1",
+    "@babel/preset-env": "^7.12.1",
+    "eslint": "^7.12.1",
+    "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-plugin-import": "^2.22.1",
+    "jest": "^26.6.1"
+  },
+  "dependencies": {}
+}
