@@ -68,6 +68,20 @@ class Activity {
 
     return true;
   }
+
+  /**
+   * Compute the amount of points
+   * to reward the activity.
+   */
+  getPoints() {
+    if (!this.isValid()) {
+      throw new Error('Cannot compute points of invalid activity');
+    }
+
+    /* The calculation method depends on activity type
+    and is based on distance and/or duration. */
+    return SPORTS[this.#type].getPoints({ distance: this.#distance, duration: this.#duration });
+  }
 }
 
 export default Activity;
