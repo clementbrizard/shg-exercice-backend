@@ -1,7 +1,14 @@
 export const SPORTS = {
-  running: {},
-  cycling: {},
-  walking: {},
+  running: {
+    // in km/h
+    maxSpeed: 18,
+  },
+  cycling: {
+    maxSpeed: 50,
+  },
+  walking: {
+    maxSpeed: 7,
+  },
 };
 
-export default SPORTS;
+export const minutesInHour = 60;
