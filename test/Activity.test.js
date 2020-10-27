@@ -1,4 +1,4 @@
-import Activity from '../src/index';
+import Activity from '../src/Activity';
 import { SPORTS } from '../src/constants';
 
 describe('Activity', () => {
