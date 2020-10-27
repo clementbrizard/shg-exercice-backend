@@ -1,9 +1,5 @@
-import validator from 'parameter-validator';
 import { SPORTS } from './constants';
-
-const { validate } = validator;
-
-const validatePositiveNumber = (val) => typeof val === 'number' && Math.sign(val) === 1;
+import fromKmInMinToKmPerHour from './utils';
 
 /**
  * Class representing an activity.
@@ -21,17 +17,7 @@ class Activity {
    * @param {number} distance - The distance (in m).
    * @param {number} duration - The duration (in min).
    */
-  constructor({ type, distance, duration }) {
-    // Validate the params
-    validate(
-      { type, distance, duration },
-      [
-        { type: (val) => typeof val === 'string' && Object.keys(SPORTS).includes(val) },
-        { distance: (val) => validatePositiveNumber(val) },
-        { duration: (val) => validatePositiveNumber(val) },
-      ],
-    );
-
+  constructor(type, distance, duration) {
     this.#type = type;
     this.#distance = distance;
     this.#duration = duration;
@@ -55,6 +41,32 @@ class Activity {
    */
   static getSportTypes() {
     return Object.keys(SPORTS);
+  }
+
+  /**
+   * Check if all fields are valid
+   * and if activity speed is not
+   * too high.
+   */
+  isValid() {
+    if (typeof this.#type !== 'string' || !Activity.getSportTypes().includes(this.#type)) {
+      return false;
+    }
+
+    // The second condition checks if the number is positive
+    if (typeof this.#distance !== 'number' || Math.sign(this.#distance) !== 1) {
+      return false;
+    }
+
+    if (typeof this.#duration !== 'number' || Math.sign(this.#duration) !== 1) {
+      return false;
+    }
+
+    if (fromKmInMinToKmPerHour(this.#distance, this.#duration) > SPORTS[this.#type].maxSpeed) {
+      return false;
+    }
+
+    return true;
   }
 }
 
