@@ -5,6 +5,9 @@ export const SPORTS = {
     basisPoints: 5,
     pointsPerKm: 10,
     getPoints(params) { return this.basisPoints + this.pointsPerKm * params.distance; },
+    marathon: {
+      maxSpeed: 15,
+    },
   },
   cycling: {
     maxSpeed: 50,
@@ -27,3 +30,5 @@ export const SPORTS = {
 };
 
 export const MINUTES_IN_HOUR = 60;
+
+export const MARATHON_DISTANCE = 42.195;
