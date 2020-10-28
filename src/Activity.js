@@ -49,20 +49,20 @@ class Activity {
    * too high.
    */
   isValid() {
-    if (typeof this.#type !== 'string' || !Activity.getSportTypes().includes(this.#type)) {
+    if (typeof this.type !== 'string' || !Activity.getSportTypes().includes(this.type)) {
       return false;
     }
 
     // The second condition checks if the number is positive
-    if (typeof this.#distance !== 'number' || Math.sign(this.#distance) !== 1) {
+    if (typeof this.distance !== 'number' || Math.sign(this.distance) !== 1) {
       return false;
     }
 
-    if (typeof this.#duration !== 'number' || Math.sign(this.#duration) !== 1) {
+    if (typeof this.duration !== 'number' || Math.sign(this.duration) !== 1) {
       return false;
     }
 
-    if (fromKmInMinToKmPerHour(this.#distance, this.#duration) > SPORTS[this.#type].maxSpeed) {
+    if (fromKmInMinToKmPerHour(this.distance, this.duration) > SPORTS[this.type].maxSpeed) {
       return false;
     }
 
@@ -80,7 +80,7 @@ class Activity {
 
     /* The calculation method depends on activity type
     and is based on distance and/or duration. */
-    return SPORTS[this.#type].getPoints({ distance: this.#distance, duration: this.#duration });
+    return SPORTS[this.type].getPoints({ distance: this.distance, duration: this.duration });
   }
 }
 
