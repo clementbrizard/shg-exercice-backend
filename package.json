@@ -1,5 +1,5 @@
 {
-  "name": "sport-activity",
+  "name": "@clementbrizard/sport-activities",
   "version": "1.0.0",
   "description": "A package to handle sport activities",
   "main": "src/index.js",
@@ -34,5 +34,8 @@
     "eslint-plugin-import": "^2.22.1",
     "jest": "^26.6.1"
   },
-  "dependencies": {}
+  "dependencies": {},
+  "directories": {
+    "test": "test"
+  }
 }
